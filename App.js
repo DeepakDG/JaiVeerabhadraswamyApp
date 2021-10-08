@@ -1,7 +1,27 @@
-import React, { Component } from 'react';  
+import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Video } from "expo-av";
 import LighVide from "./Images/splash_video.mp4";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Home!</Text>
+    </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
 
 export default class Myapp extends Component<{}> {
   constructor() {
@@ -28,17 +48,17 @@ export default class Myapp extends Component<{}> {
       <View style={styles.SplashScreen_RootView}>
         <View style={styles.SplashScreen_ChildView}>
           {/* <View style={styles.container}> */}
-            <Video
-              source={LighVide}
-              shouldPlay
-              style={{ width: "100%", height: "100%" }}
-              onBuffer={this.onBuffer} // Callback when remote video is buffering
-              onError={this.videoError} // Callback when video cannot be loaded
-              controls={true}
-              paused={false}
-              fullscreen={true}
-              resizeMode="cover"
-            />
+          <Video
+            source={LighVide}
+            shouldPlay
+            style={{ width: "100%", height: "100%" }}
+            onBuffer={this.onBuffer} // Callback when remote video is buffering
+            onError={this.videoError} // Callback when video cannot be loaded
+            controls={true}
+            paused={false}
+            fullscreen={true}
+            resizeMode="cover"
+          />
           {/* </View> */}
         </View>
       </View>
@@ -46,6 +66,12 @@ export default class Myapp extends Component<{}> {
     return (
       <View style={styles.MainContainer}>
         <Text style={{ textAlign: "center" }}> Splash Screen Example</Text>
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
         {this.state.isVisible === true ? Splash_Screen : null}
       </View>
     );
