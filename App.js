@@ -79,10 +79,10 @@ export default class Myapp extends Component<{}> {
 }
 const styles = StyleSheet.create({
   MainContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingTop: Platform.OS === "ios" ? 20 : 0,
+    // flex: 1,
+    // justifyContent: "center",
+    // alignItems: "center",
+    // paddingTop: Platform.OS === "ios" ? 20 : 0,
   },
 
   SplashScreen_RootView: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#00BCD4",
-    flex: 1,
+    // flex: 1,
   },
   container: {
     backgroundColor: "#fff",
