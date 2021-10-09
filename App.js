@@ -79,10 +79,9 @@ export default class Myapp extends Component<{}> {
 }
 const styles = StyleSheet.create({
   MainContainer: {
-    // flex: 1,
-    // justifyContent: "center",
-    // alignItems: "center",
-    // paddingTop: Platform.OS === "ios" ? 20 : 0,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   SplashScreen_RootView: {
