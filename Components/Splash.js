@@ -26,7 +26,6 @@ export class Splash extends Component {
   render() {
     return (
       <SafeAreaView style={styles.mainContainer}>
-        {/* <Text style={styles.text}> Splash Screen </Text> */}
          <Video
             source={LighVide}
             shouldPlay
@@ -48,9 +47,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  text: {
-    fontSize: 22,
   },
 });
 
