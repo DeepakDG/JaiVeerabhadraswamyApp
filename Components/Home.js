@@ -1,22 +1,57 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
 export class Home extends Component {
+  state = {
+    names: [
+      {
+        id: 0,
+        name: 'veerabhadraApp',
+      },
+      {
+        id: 2,
+        name: 'veerabhadraApp2',
+      },
+      {
+        id: 3,
+        name: 'veerabhadraApp',
+      },
+      {
+        id: 1,
+        name: 'veerabhadraApp2',
+      },
+    ],
+  };
+
+  alertItemName = (item) => {
+    alert(item.name);
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text> This is Home Component </Text>
+      <View>
+        {this.state.names.map((item, index) => (
+          <TouchableOpacity
+            key={item.id}
+            style={styles.container}
+            onPress={() => this.alertItemName(item)}
+          >
+            <Text style={styles.text}>{item.name}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
+    padding: 30,
+    marginTop: 10,
+    backgroundColor: "#d9f9b1",
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "red",
+  },
+  text: {
+    color: "#4f603c",
   },
 });
 
