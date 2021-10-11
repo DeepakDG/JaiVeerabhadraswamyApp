@@ -12,7 +12,7 @@ const AppNavigator = createStackNavigator(
         headerShown: true,
         headerTitle: "Jai Veerabhadra",
         headerStyle: {
-          backgroundColor: "#FE724C",
+          backgroundColor: "#ffc529",
         },
       },
     },
@@ -22,7 +22,7 @@ const AppNavigator = createStackNavigator(
         headerShown: true,
         headerTitle: "Shri Veerabhadra",
         headerStyle: {
-          backgroundColor: "#FE724C",
+          backgroundColor: "#ffc529",
         },
       },
     },
