@@ -6,18 +6,24 @@ import TabNavigator from "./BottomTabNavigator";
 
 const AppNavigator = createStackNavigator(
   {
-    Splash : {
+    Splash: {
       screen: Splash,
       navigationOptions: {
         headerShown: true,
-        headerTitle: 'Jai Veerabhadra',
+        headerTitle: "Jai Veerabhadra",
+        headerStyle: {
+          backgroundColor: "#FE724C",
+        },
       },
     },
-    Root : {
+    Root: {
       screen: TabNavigator,
       navigationOptions: {
         headerShown: true,
-        headerTitle: 'Shri Veerabhadra',
+        headerTitle: "Shri Veerabhadra",
+        headerStyle: {
+          backgroundColor: "#FE724C",
+        },
       },
     },
   },
