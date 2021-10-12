@@ -9,11 +9,11 @@ const AppNavigator = createStackNavigator(
     Splash: {
       screen: Splash,
       navigationOptions: {
-        headerShown: true,
-        headerTitle: "Jai Veerabhadra",
-        headerStyle: {
-          backgroundColor: "#ffc529",
-        },
+        headerShown: false,
+        // headerTitle: "Jai Veerabhadra",
+        // headerStyle: {
+        //   backgroundColor: "#fe724c",
+        // },
       },
     },
     Root: {
@@ -22,7 +22,7 @@ const AppNavigator = createStackNavigator(
         headerShown: true,
         headerTitle: "Shri Veerabhadra",
         headerStyle: {
-          backgroundColor: "#ffc529",
+          backgroundColor: "#fe724c",
         },
       },
     },

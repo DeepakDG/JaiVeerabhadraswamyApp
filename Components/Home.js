@@ -102,11 +102,11 @@ function Item({ id, title, selected, onSelect }) {
       onPress={() => alert(title)}
       style={[
         styles.item,
-        { backgroundColor: selected ? '#FE724C' : '#FE724C' },
+        { backgroundColor: selected ? '#ffffff' : '#ffffff' },
       ]}
     >
       <Text style={styles.title}>{title}</Text>
-      <Icon name="chevron-right" type="entypo" color="#FFFFFF" />
+      <Icon name="chevron-right" type="entypo" color="#272d2f" />
     </TouchableOpacity>
   );
 }
@@ -146,10 +146,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    // marginTop: Constants.statusBarHeight,
+    backgroundColor: '#fe724c',
   },
   item: {
-    backgroundColor: '#fe724c',
+    backgroundColor: '#272d2f',
     padding: 15,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -158,6 +159,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    color : '#ffffff',
+    color : '#272d2f',
   },
 });
