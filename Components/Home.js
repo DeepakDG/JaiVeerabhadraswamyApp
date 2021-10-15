@@ -1,99 +1,103 @@
-import React from 'react';
+import React from "react";
 import {
   SafeAreaView,
   TouchableOpacity,
   FlatList,
   StyleSheet,
   Text,
-} from 'react-native';
-import Constants from 'expo-constants';
+  Button,
+  View,
+  Image,
+} from "react-native";
+import Constants from "expo-constants";
 import { Icon } from "react-native-elements";
+import ContextMenu from "react-native-context-menu-view";
 
 const DATA = [
   {
-        id: 0,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸುಪ್ರಭಾತ",
-      },
-      {
-        id: 1,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಕವಚಂ",
-      },
-      {
-        id: 2,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ದಂಡಕಂ",
-      },
-      {
-        id: 3,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ತಾರಾವಳಿ",
-      },
-      {
-        id: 4,
-        title: "ಶ್ರೀ ವೀರಭದ್ರಾಷ್ಟಕಂ",
-      },
-      {
-        id: 5,
-        title: "ಶ್ರೀ ಭದ್ರ ಕವಚಂ",
-      },
-      {
-        id: 6,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮಸ್ತೋತ್ರ",
-      },
-      {
-        id: 7,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮವಳಿ",
-      },
-      {
-        id: 8,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರ",
-      },
-      {
-        id: 9,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ",
-      },
-      {
-        id: 10,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ವಡಪುಗಳು",
-      },
-      {
-        id: 11,
-        title: "ಗುಗ್ಗುಳದ ಬಗ್ಗೆ ಮಾಹಿತಿ",
-      },
-      {
-        id: 12,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಂಕ್ಷಿಪ್ತ ಪರಿಚಯ",
-      },
-      {
-        id: 13,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಆಚರಣೆಗಳು",
-      },
-      {
-        id: 14,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಪ್ರಾರ್ಥನೆ",
-      },
-      {
-        id: 15,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ ಶ್ಲೋಕ",
-      },
-      {
-        id: 16,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಶತಕ",
-      },
-      {
-        id: 17,
-        title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ",
-      },
-      {
-        id: 18,
-        title: "ದ್ವಾತ್ರಿಂಶದ್ಭುಜ ಶ್ರೀ ವೀರಭದ್ರ ಧ್ಯಾನಂ",
-      },
-      {
-        id: 19,
-        title: "ಶ್ರೀ ಶರಭ ಹೃದಯ ಸ್ತೋತ್ರ",
-      },
-      {
-        id: 20,
-        title: "ಶ್ರೀ ಶರಭೋಪನಿಷತ್ತು",
-      },
+    id: 0,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸುಪ್ರಭಾತ",
+  },
+  {
+    id: 1,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಕವಚಂ",
+  },
+  {
+    id: 2,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ದಂಡಕಂ",
+  },
+  {
+    id: 3,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ತಾರಾವಳಿ",
+  },
+  {
+    id: 4,
+    title: "ಶ್ರೀ ವೀರಭದ್ರಾಷ್ಟಕಂ",
+  },
+  {
+    id: 5,
+    title: "ಶ್ರೀ ಭದ್ರ ಕವಚಂ",
+  },
+  {
+    id: 6,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮಸ್ತೋತ್ರ",
+  },
+  {
+    id: 7,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಹಸ್ರನಾಮವಳಿ",
+  },
+  {
+    id: 8,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ ಸ್ತೋತ್ರ",
+  },
+  {
+    id: 9,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಅಷ್ಟೋತ್ತರ ಶತನಾಮಾವಳಿ",
+  },
+  {
+    id: 10,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ವಡಪುಗಳು",
+  },
+  {
+    id: 11,
+    title: "ಗುಗ್ಗುಳದ ಬಗ್ಗೆ ಮಾಹಿತಿ",
+  },
+  {
+    id: 12,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಸಂಕ್ಷಿಪ್ತ ಪರಿಚಯ",
+  },
+  {
+    id: 13,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಆಚರಣೆಗಳು",
+  },
+  {
+    id: 14,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಪ್ರಾರ್ಥನೆ",
+  },
+  {
+    id: 15,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ ಶ್ಲೋಕ",
+  },
+  {
+    id: 16,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಶತಕ",
+  },
+  {
+    id: 17,
+    title: "ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಮಂಗಳ",
+  },
+  {
+    id: 18,
+    title: "ದ್ವಾತ್ರಿಂಶದ್ಭುಜ ಶ್ರೀ ವೀರಭದ್ರ ಧ್ಯಾನಂ",
+  },
+  {
+    id: 19,
+    title: "ಶ್ರೀ ಶರಭ ಹೃದಯ ಸ್ತೋತ್ರ",
+  },
+  {
+    id: 20,
+    title: "ಶ್ರೀ ಶರಭೋಪನಿಷತ್ತು",
+  },
 ];
 
 function Item({ id, title, selected, onSelect }) {
@@ -102,7 +106,7 @@ function Item({ id, title, selected, onSelect }) {
       onPress={() => alert(title)}
       style={[
         styles.item,
-        { backgroundColor: selected ? '#ffffff' : '#ffffff' },
+        { backgroundColor: selected ? "#ffffff" : "#ffffff" },
       ]}
     >
       <Text style={styles.title}>{title}</Text>
@@ -115,17 +119,22 @@ export default function App() {
   const [selected, setSelected] = React.useState(new Map());
 
   const onSelect = React.useCallback(
-    id => {
+    (id) => {
       const newSelected = new Map(selected);
       newSelected.set(id, !selected.get(id));
 
       setSelected(newSelected);
     },
-    [selected],
+    [selected]
   );
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.buttonstyle}>
+        <TouchableOpacity>
+          <Image source={require("../Components/Images/overflow.png")} />
+        </TouchableOpacity>
+      </View>
       <FlatList
         data={DATA}
         renderItem={({ item }) => (
@@ -136,7 +145,7 @@ export default function App() {
             onSelect={onSelect}
           />
         )}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         extraData={selected}
       />
     </SafeAreaView>
@@ -146,19 +155,33 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // marginTop: Constants.statusBarHeight,
-    backgroundColor: '#fe724c',
+    marginTop: Constants.statusBarHeight,
+    backgroundColor: "#fe724c",
   },
   item: {
-    backgroundColor: '#272d2f',
+    backgroundColor: "#272d2f",
     padding: 15,
     marginVertical: 8,
     marginHorizontal: 16,
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  topbutton: {
+    position: "absolute",
+    right: 5,
+    top: 5,
+    width: "10%",
+    height: 150,
+  },
+  buttonstyle: {
+    alignSelf: "flex-end",
+    right: 5,
+    top: 5,
+    width: "10%",
+    height: 50,
+  },
   title: {
     fontSize: 20,
-    color : '#272d2f',
+    color: "#272d2f",
   },
 });
