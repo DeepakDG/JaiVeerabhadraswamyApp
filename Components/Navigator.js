@@ -2,8 +2,9 @@ import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import Home from "./Home";
 import Splash from "./Splash";
+import AboutScreen from "./AboutScreen";
 import TabNavigator from "./BottomTabNavigator";
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -11,7 +12,7 @@ import {
   StyleSheet,
   Text,
   Button,
-} from 'react-native';
+} from "react-native";
 const AppNavigator = createStackNavigator(
   {
     Splash: {
@@ -40,6 +41,9 @@ const AppNavigator = createStackNavigator(
         //   />
         // ),
       },
+    },
+    About: {
+      screen:  () => <AboutScreen/>,
     },
   },
   {
