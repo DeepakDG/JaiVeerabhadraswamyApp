@@ -11,6 +11,7 @@ import {
   Image,
   Button,
 } from "react-native";
+import { Icon } from "react-native-elements";
 
 export default class Home extends Component {
   renderSeparator = () => {
@@ -19,7 +20,7 @@ export default class Home extends Component {
         style={{
           height: 1,
           width: "100%",
-          backgroundColor: "#000",
+          backgroundColor: "#ffffff",
         }}
       />
     );
@@ -127,12 +128,22 @@ export default class Home extends Component {
             },
           ]}
           renderItem={({ item }) => (
-            <Text
-              style={styles.item}
-              onPress={this.getListViewItem.bind(this, item)}
+            <TouchableOpacity
+              onPress={() => {
+                // this.getListViewItem.bind(this, item);
+                 this.props.navigation.navigate("About")
+              }}
             >
-              {item.key}
-            </Text>
+              <View style={styles.title}>
+                <Text
+                  // style={styles.item}
+                  // onPress={this.getListViewItem.bind(this, item)}
+                >
+                  {item.key}
+                </Text>
+                <Icon name="chevron-right" type="entypo" color="#272d2f" />
+              </View>
+            </TouchableOpacity>
           )}
           ItemSeparatorComponent={this.renderSeparator}
         />
@@ -172,6 +183,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: "#272d2f",
+    backgroundColor: "#ffffff",
+    padding: 15,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
 
