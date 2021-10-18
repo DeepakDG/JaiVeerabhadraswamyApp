@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import {
+  SafeAreaView,
+  TouchableOpacity,
   AppRegistry,
   FlatList,
   StyleSheet,
   Text,
   View,
   Alert,
+  Image,
+  Button,
 } from "react-native";
 
 export default class Home extends Component {
@@ -29,7 +33,12 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.buttonstyle}>
+          <TouchableOpacity>
+            <Image source={require("../Components/Images/overflow.png")} />
+          </TouchableOpacity>
+        </View>
         <FlatList
           data={[
             {
@@ -127,7 +136,7 @@ export default class Home extends Component {
           )}
           ItemSeparatorComponent={this.renderSeparator}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -135,11 +144,34 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 40,
+    backgroundColor: "#fe724c",
   },
   item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
+    backgroundColor: "#ffffff",
+    padding: 15,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  topbutton: {
+    position: "absolute",
+    right: 5,
+    top: 5,
+    width: "10%",
+    height: 150,
+  },
+  buttonstyle: {
+    alignSelf: "flex-end",
+    right: 5,
+    top: 5,
+    width: "10%",
+    height: 50,
+  },
+  title: {
+    fontSize: 20,
+    color: "#272d2f",
   },
 });
 
