@@ -44,6 +44,13 @@ const AppNavigator = createStackNavigator(
     },
     About: {
       screen:  () => <AboutScreen/>,
+      navigationOptions: {
+        headerShown: true,
+        headerTitle: "ಮಂತ್ರಗಳು",
+        headerStyle: {
+          backgroundColor: "#ffffff",
+      },
+      },
     },
   },
   {
