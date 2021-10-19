@@ -8,7 +8,7 @@ const TabNavigator = createBottomTabNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
-      title: "Deepak",
+      title: "ಹೋಮ್",
       
       headerStyle: {
         backgroundColor: '#2F95D6',
@@ -56,7 +56,7 @@ const TabNavigator = createBottomTabNavigator({
         fontSize: 38,
       },
     navigationOptions: {
-      title: "yeee",
+      title: "ದೇವಸ್ಥಾನಗಳು",
       tabBarOptions: {
         activeTintColor: "rgb(245,87,108)",
         inactiveTintColor: "rgba(0,0,0,0.41)",

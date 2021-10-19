@@ -135,7 +135,7 @@ export default class Home extends Component {
               }}
             >
               <View style={styles.title}>
-                <Text
+                <Text style={{ fontWeight: 'bold' }}
                   // style={styles.item}
                   // onPress={this.getListViewItem.bind(this, item)}
                 >
@@ -184,12 +184,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#272d2f",
     backgroundColor: "#ffffff",
-    padding: 15,
+    padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    fontWeight: 'bold',
   },
 });
 
