@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "JaiVeerabhadreshwara",
+    "slug": "jaiveerabhadreshwara",
+    "version": "1.0.0",
+    "sdkVersion": "42.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "android": {
+      "package": "com.deepakganachari.veerabhadreshwaraApp"
+    }
+  }
+}
