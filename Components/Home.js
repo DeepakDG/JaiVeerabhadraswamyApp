@@ -12,6 +12,13 @@ import {
   Button,
 } from "react-native";
 import { Icon } from "react-native-elements";
+// somewhere in your app
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from "react-native-popup-menu";
 
 export default class Home extends Component {
   renderSeparator = () => {
@@ -32,13 +39,28 @@ export default class Home extends Component {
     this.props.navigation.navigate("About");
   };
 
+  showAlert() {
+    alert("I'm an alert");
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.buttonstyle}>
-          <TouchableOpacity>
-            <Image source={require("../Components/Images/overflow.png")} />
-          </TouchableOpacity>
+          <Menu>
+          <MenuTrigger text="Select action" />
+          <MenuOptions>
+            <MenuOption onSelect={() => alert(`Save`)} text="Save" />
+            <MenuOption onSelect={() => alert(`Delete`)}>
+              <Text style={{ color: "red" }}>Delete</Text>
+            </MenuOption>
+            <MenuOption
+              onSelect={() => alert(`Not called`)}
+              disabled={true}
+              text="Disabled"
+            />
+          </MenuOptions>
+        </Menu>
         </View>
         <FlatList
           data={[
@@ -131,11 +153,12 @@ export default class Home extends Component {
             <TouchableOpacity
               onPress={() => {
                 // this.getListViewItem.bind(this, item);
-                 this.props.navigation.navigate("About")
+                this.props.navigation.navigate("About");
               }}
             >
               <View style={styles.title}>
-                <Text style={{ fontWeight: 'bold' }}
+                <Text
+                  style={{ fontWeight: "bold" }}
                   // style={styles.item}
                   // onPress={this.getListViewItem.bind(this, item)}
                 >
@@ -190,7 +213,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 
